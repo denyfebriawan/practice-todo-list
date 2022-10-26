@@ -1,125 +1,135 @@
-import { useState } from 'react';
-import './App.css'
-import Header from './components/header/Header';
+import React from 'react';
+
+import TodoList from './components/pages/TodoList'
 
 
 
 
 
 const App = () => {
-  const [buttonText, setButtonText] = useState('Done!');
+  // const [buttonText, setButtonText] = useState('Done!');
 
-  const Square = ({todo}) =>{
+  // const Square = ({todo}) =>{
     
     
-    function handleClick() {
+  //   function handleClick() {
 
-     const doneState = todos.map(obj =>{
-        if (obj.id === todo.id) {
-          setButtonText('Cancel!')
-          return {...obj, isDone:true}
-        } 
+  //    const doneState = todos.map(obj =>{
+  //       if (obj.id === todo.id) {
+  //         setButtonText('Done!')
+  //         return {...obj, isDone:true}
+  //       } 
 
-        return obj;
-      })
+  //       return obj;
+  //     })
 
-      const cancelState =  todos.map(obj =>{
-        if (obj.id === todo.id) {
-          setButtonText('Done!')
-          return {...obj, isDone:false}
-        } 
+  //     const cancelState =  todos.map(obj =>{
+  //       if (obj.id === todo.id) {
+  //         setButtonText('Cancel!')
+  //         return {...obj, isDone:false}
+  //       } 
 
-        return obj;
-      })
+  //       return obj;
+  //     })
     
 
-      if (todo.isDone === false) {
-        setTodo(doneState);
-      } else {
-        setTodo(cancelState);
-      }
+  //     if (todo.isDone === false) {
+  //       setTodo(doneState);
+  //     } else {
+  //       setTodo(cancelState);
+  //     }
      
-    }
+  //   }
 
-    const removeHandle = () => {
-     todos.map(obj => {
-      setTodo((current) =>
-      current.filter((obj) => obj.id !== todo.id)
-        )
+  //   const removeHandle = () => {
+  //    todos.map(obj => {
+  //     setTodo((current) =>
+  //     current.filter((obj) => obj.id !== todo.id)
+  //       )
        
-     })
+  //    })
 
      
-    }
+  //   }
   
-    return (
-      <div className='square-style'>
+  //   return (
+  //     <div className='square-style'>
        
-        {todo.title}
-        {todo.id}
-        {todo.context}
-        <button onClick={removeHandle}>delete</button>
-        <button onClick={handleClick}>{buttonText}</button>
+  //       {todo.title}
+  //       {todo.id}
+  //       {todo.context}
+  //       <button onClick={removeHandle}>delete</button>
+  //       <button onClick={handleClick}>{buttonText}</button>
         
-      </div>
-    );
-  };
+  //     </div>
+  //   );
+  // };
 
-  const [todos, setTodo] = useState([]);
+  // const [todos, setTodo] = useState([]);
 
-  let [newTodo, setNewTodo] = useState('');
-  let [newContext, setNewContext] = useState('');
+  // let [newTodo, setNewTodo] = useState('');
+  // let [newContext, setNewContext] = useState('');
 
-  const handleChange = (event) => {
-    setNewTodo(event.target.value);
-  };
+  // const handleChange = (event) => {
+  //   setNewTodo(event.target.value);
+   
+  // };
 
-  const handleContext = (event) => {
-    setNewContext(event.target.value);
-  }
+  // const handleContext = (event) => {
+  //   setNewContext(event.target.value);
+  // };
 
-  const addNewTodo = () => {
-    setTodo([...todos, {id: todos.length, context:newContext, title:newTodo, isDone:false}]);
-    setNewTodo(newTodo = '')
-    setNewContext(newContext= '')
-  };
+  // const addNewTodo = () => {
+  //   setTodo([...todos, {id: todos.length, context:newContext, title:newTodo, isDone:false}]);
+  //   setNewTodo(newTodo = '')
+  //   setNewContext(newContext= '')
+  // };
 
-  return (
+  // return (
       
-      <div>
-        <Header/>
+  //     <div>
+  //       <Header />
         
-        <input value={newTodo} onChange={handleChange}/>
-        <input value={newContext} onChange={handleContext} />
-        <button onClick={addNewTodo}>Add new to do</button>
+  //       <div className='container-form'>
+  //         <label className='input-label'>Title :</label>
+  //         <input className='input-box' value={newTodo}  onChange={handleChange}/>
 
-        <div className='list-container'>
-          <h1>WORKING</h1>
-          {todos.map((todo) => {
-            if (todo.isDone === false) {
-              return (
-                <Square 
-                  todo = {todo}
-                  key={`todo-${todo.id}`}/>
-              );
-            }
-          })}
-        </div>
+  //         <label className='input-label'>Context :</label>
+  //         <input className='input-box' value={newContext} onChange={handleContext} />
+          
+  //         <button className='input-button' onClick={addNewTodo}>Add new to do</button>
+  //       </div>
+        
+  //       <Layout />
 
-        <div>
-          <h1>Done</h1>
-          {todos.map((todo) => {
-            if (todo.isDone === true) {
-              return (
-                <Square 
-                  todo = {todo}
-                  key={`todo-${todo.id}`}/>
-              );
-            }
-          })}
-        </div>
-      </div>
-  );
+  //       <div className='list-container'>
+  //         <h1>Working</h1>
+  //         {todos.map((todo) => {
+  //           if (todo.isDone === false) {
+  //             return (
+  //               <Square 
+  //                 todo = {todo}
+  //                 key={`todo-${todo.id}`}/>
+  //             );
+  //           }
+  //         })}
+  //       </div>
+
+  //       <div>
+  //         <h1>Done</h1>
+  //         {todos.map((todo) => {
+  //           if (todo.isDone === true) {
+  //             return (
+  //               <Square 
+  //                 todo = {todo}
+  //                 key={`todo-${todo.id}`}/>
+  //             );
+  //           }
+  //         })}
+  //       </div>
+  //     </div>
+  // );
+  return <TodoList />
 }
 
 export default App;
