@@ -38,13 +38,24 @@ const App = () => {
       }
      
     }
+
+    const removeHandle = () => {
+     todos.map(obj => {
+      setTodo((current) =>
+      current.filter((obj) => obj.id !== todo.id)
+        )
+       
+     })
+
+     
+    }
   
     return (
       <div className='square-style'>
        
         {todo.title}
         {todo.id}
-        <button>delete</button>
+        <button onClick={removeHandle}>delete</button>
         <button onClick={handleClick}>{buttonText}</button>
         
       </div>
