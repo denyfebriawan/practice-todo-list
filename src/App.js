@@ -55,6 +55,7 @@ const App = () => {
        
         {todo.title}
         {todo.id}
+        {todo.context}
         <button onClick={removeHandle}>delete</button>
         <button onClick={handleClick}>{buttonText}</button>
         
@@ -65,15 +66,20 @@ const App = () => {
   const [todos, setTodo] = useState([]);
 
   let [newTodo, setNewTodo] = useState('');
+  let [newContext, setNewContext] = useState('');
 
   const handleChange = (event) => {
     setNewTodo(event.target.value);
-    console.log(event.target.value);
   };
 
+  const handleContext = (event) => {
+    setNewContext(event.target.value);
+  }
+
   const addNewTodo = () => {
-    setTodo([...todos, {id: todos.length, title:newTodo, isDone:false}]);
+    setTodo([...todos, {id: todos.length, context:newContext, title:newTodo, isDone:false}]);
     setNewTodo(newTodo = '')
+    setNewContext(newContext= '')
   };
 
   return (
@@ -81,6 +87,7 @@ const App = () => {
         <h1>To Do List</h1>
 
         <input value={newTodo} onChange={handleChange}/>
+        <input value={newContext} onChange={handleContext} />
         <button onClick={addNewTodo}>Add new to do</button>
 
         <div className='list-container'>
