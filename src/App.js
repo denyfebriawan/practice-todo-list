@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import './App.css'
+import Header from './components/header/Header';
+
 
 
 
@@ -83,9 +85,10 @@ const App = () => {
   };
 
   return (
+      
       <div>
-        <h1>To Do List</h1>
-
+        <Header/>
+        
         <input value={newTodo} onChange={handleChange}/>
         <input value={newContext} onChange={handleContext} />
         <button onClick={addNewTodo}>Add new to do</button>
